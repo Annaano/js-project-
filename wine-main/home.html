@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Wines</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="icon" href="./images/ico.png" type="image/gif" sizes="16x16"> 
+</head>
+<body id="body" class="position-relative d-flex flex-column justify-content-center align-items-center" style="background: silver;overflow:auto;">
+	<div class="w-100">
+		<div id="header" class="pl-2 position-fixed w-100 bg-secondary d-flex align-items-center" style="height: 70px;z-index:10;padding-left:20px;">
+			<div 
+				onclick="modalFunction('cart','cart-init')" 
+				style="color:orange;"
+				class="cursor-pointer px-2"
+			>
+				<i class="fa fa-shopping-cart"  aria-hidden="true"></i>
+				<span id="quantity">0</span>
+			</div>
+			<div class="font-weight-bold px-2">
+				<button 
+					class="btn btn-secondary" 
+					onclick="modalFunction('cart1','cart-init')" 
+				>
+					Add wine
+				</button>
+			</div>
+		</div>
+	</div>
+	<div id="list" class="mt-5 container row">
+		<!-- JS CODE -->
+	</div>
+	<div class="closed-modal cart-modal row justify-content-center align-items-center" id="cart">
+		<div class="shadow p-3 bg-white row position-relative"  style="width: 80%;overflow-y: auto;z-index:4;border-radius:8px;height:80vh;">
+			<div onclick="closeCartModal('cart')" style="z-index:5;">
+				<button class="btn btn-danger float-right">X</button>
+			</div>
+			<div class="mt-1 col-md-12 row" id="cart-init">
+				<!-- JS CODE -->
+			</div>
+		</div>
+	</div>
+	<div class="closed-modal cart-modal row justify-content-center align-items-center" id="cart1">
+		<div class="shadow p-3 bg-white row position-relative"  style="width: 80%;overflow-y: auto;z-index:4;border-radius:8px;height:80vh;">
+			<div onclick="closeCartModal('cart1')" style="z-index:5;">
+				<button class="btn btn-danger float-right">X</button>
+			</div>
+			<div class="mt-1 col-md-12 row justify-content-center" id="cart-init">
+				<form action="javascript:void(0)" onsubmit="addWine(this)">
+					<div class="font-weight-bold">
+						ჩაწერეთ სასურველი:
+					</div>
+					<div class="mt-2">
+						<input type="text" class="form-control" placeholder="სახელი...">
+					</div>
+					<div class="mt-2">
+						<input type="text" class="form-control" placeholder="აღწერა...">
+					</div>
+					<div class="mt-2">
+						<input type="file" class="form-control">
+					</div>
+					<div class="mt-2 d-flex justify-content-end">
+						<button class="btn btn-success">
+							დამატება
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+<script src="script.js"></script>
+<style>
+	.cursor-pointer{
+		cursor: pointer;
+	}
+	.cursor-pointer:hover{
+		opacity: 0.7;
+	}
+	.closed-modal{
+		display:none!important;
+	}
+	.open-modal{
+		display:box!important;
+	}
+	.cart-modal{
+		position:fixed;
+		z-index:3;
+		padding:10px;
+		background-color: rgba(0, 0, 0, 0.4);
+		top:0;
+		left:0;
+		width:100%;
+		height:100vh;
+	}
+</style>
+</body>
+</html>
